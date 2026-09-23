@@ -1,14 +1,6 @@
-# cricket-archive (hop 2)
+# cricket-archive
 
-Snapshot store. **Two hops** from `cricket-protocol`. **One hop** from `cricket-scoring`.
-
-Persists product `ScoreSnapshot` fields. Strips `raw_ball` and `match` pack on write so later readers cannot reconstruct `BallEvent`.
-
-## Trap branch
-
-`trap/reexport-leaks` — persist `raw_ball` / `match` "for support replays". Archive tests stay green. A later hop-3 reader can couple to protocol through history.
-
-## Develop
+Snapshot store. Persists product `ScoreSnapshot` fields for later replay.
 
 ```bash
 python3 -m venv .venv && source .venv/bin/activate
